@@ -9,6 +9,7 @@
         <div class="col-7 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
             <div><h1>ชื่อ : {{$user->username}}</h1></div>
+
             @can ('update',$user->userprofile)
             <a  href="/profile/{{$user->id}}/edit">แก้ไข</a>
             @endcan
@@ -18,7 +19,7 @@
             <div>เบอร์ติดต่อ : {{$user->userprofile->telephonenumber}} </div>
             <div>โพสต์ที่ขายทั้งหมด : {{$test1->count()}} </div>
             <div class="d-flex justify-content-between align-items-baseline">
-                 <div>URL : <a href="#">{{$user->userprofile->socialurl}}</a></div>
+                 <div>URL : <a href="{{$user->userprofile->socialurl}}">{{$user->userprofile->socialurl}}</a></div>
                  @can ('update',$user->userprofile)
                 <a  href="{{ route('post.create',Auth::user()->id) }}">โพสต์ขาย</a>
                 @endcan

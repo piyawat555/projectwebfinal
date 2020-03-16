@@ -7,6 +7,7 @@ use App\post_image;
 use App\posts;
 use App\User;
 use Illuminate\Support\Facades\Storage;
+
 use Image;
 use Illuminate\Http\Request;
 
@@ -49,7 +50,7 @@ class postscontroller extends Controller
                     //Resize image here
                     $thumbnailpath = public_path('storage/profile_images/thumbnail/'.$filenametostore);
                     $thumbnailpath2= 'storage/profile_images/thumbnail/'.$filenametostore;
-                    $img = Image::make($thumbnailpath)->fit(200, 200, function($constraint) {
+                    $img = Image::make($thumbnailpath)->fit(500, 500, function($constraint) {
                         $constraint->aspectRatio();
                     });
                     $img->save($thumbnailpath);
